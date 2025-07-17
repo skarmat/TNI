@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Network India - Trekking the Soul of the Himalayas</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+    <style>
+      /* Mobile menu button */
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        position: relative;
+      }
+
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background: white;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      /* Hamburger animation */
+      .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+        background: white;
+      }
+
+      .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+        background: white;
+      }
+
+      /* Mobile menu overlay */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-menu-content {
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 20px;
+      }
+
+      .mobile-nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 40px;
+      }
+
+      .mobile-nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-overlay.active .mobile-nav-links li {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-nav-links li:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .mobile-nav-links li:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .mobile-nav-links li:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .mobile-nav-links li:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .mobile-nav-links li:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+      .mobile-nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 600;
+        display: block;
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .mobile-nav-links a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #dbb977;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .mobile-nav-links a:hover {
+        color: #dbb977;
+      }
+
+      .mobile-nav-links a:hover::before {
+        width: 100%;
+      }
+
+      .mobile-cta {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        transition-delay: 0.6s;
+      }
+
+      .mobile-menu-overlay.active .mobile-cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-cta-button {
+        background: linear-gradient(135deg, #dbb977, #c5e1e5);
+        color: #333;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(219, 185, 119, 0.4);
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-nav {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
+
+        .nav-content {
+          padding: 0 15px;
+        }
+
+        .mobile-nav-links a {
+          font-size: 28px;
+        }
+
+        .mobile-cta-button {
+          font-size: 20px;
+          padding: 18px 35px;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-btn {
+          display: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .mobile-nav-links a {
+          font-size: 24px;
+        }
+
+        .mobile-cta-button {
+          font-size: 18px;
+          padding: 15px 30px;
+        }
+      }
+
+      /* Accessibility improvements */
+      .mobile-menu-btn:focus,
+      .mobile-nav-links a:focus {
+        outline: 2px solid #dbb977;
+        outline-offset: 2px;
+      }
+
+      /* Prevent body scroll when menu is open */
+      body.menu-open {
+        overflow: hidden;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full mx-10 rounded-full z-50 bg-black/80 backdrop-blur-md shadow transition-all duration-500"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center">
+            <div class="text-2xl font-serif font-bold text-[#DBB977]">TNI</div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-base font-medium text-white hover:text-[#DBB977] focus:text-[#DBB977] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-base font-medium text-white hover:text-[#DBB977] focus:text-[#DBB977] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="nav-link text-base font-medium text-white hover:text-[#DBB977] focus:text-[#DBB977] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >Services</a
+            >
+            <a
+              href="#treks"
+              class="nav-link text-base font-medium text-white hover:text-[#DBB977] focus:text-[#DBB977] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >Treks</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-base font-medium text-white hover:text-[#DBB977] focus:text-[#DBB977] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >Contact</a
+            >
+            <a
+              href="#contact"
+              class="ml-4 bg-[#DBB977] text-[#202020] px-6 py-2 rounded-full font-semibold hover:bg-[#C5E1E5] hover:text-[#202020] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#DBB977] no-underline"
+              >Start Journey</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="mobile-menu-btn"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" aria-hidden="true">
+      <div class="mobile-menu-content">
+        <ul class="mobile-nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#treks">Treks</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-cta">
+          <a href="#contact" class="mobile-cta-button">Start Journey</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <!-- Background Video/Image -->
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"
+        ></div>
+        <img
+          src="./public/assets/TNI6.jpg"
+          alt="Himalayan Mountains"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <!-- Floating Elements -->
+      <div
+        class="absolute top-20 left-10 w-20 h-20 bg-[#DBB977]/20 rounded-full blur-xl animate-pulse"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-32 h-32 bg-[#C5E1E5]/20 rounded-full blur-xl animate-pulse delay-1000"
+      ></div>
+      <div
+        class="absolute bottom-40 left-20 w-16 h-16 bg-[#DCE6E0]/20 rounded-full blur-xl animate-pulse delay-2000"
+      ></div>
+
+      <!-- Main Content -->
+      <div
+        class="relative z-10 text-center px-4 max-w-6xl mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <div class="mb-8">
+          <h1
+            class="text-5xl md:text-8xl font-serif font-bold mb-6 leading-tight text-white"
+          >
+            <span
+              class="block text-transparent bg-clip-text bg-gradient-to-r from-[#DBB977] via-white to-[#C5E1E5]"
+            >
+              Let Ladakh
+            </span>
+            <span
+              class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-[#DBB977] to-[#C5E1E5]"
+            >
+              Change You
+            </span>
+          </h1>
+        </div>
+
+        <p
+          class="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          Trekking the Soul of the Himalayas. Experience raw beauty, local
+          wisdom, and authentic connection in the untouched landscapes of
+          Ladakh.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <a
+            href="#treks"
+            class="group relative overflow-hidden bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] text-gray-900 px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:shadow-2xl hover:scale-105 transition-all duration-500 no-underline"
+          >
+            <span class="relative z-10">Explore Treks</span>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-[#C5E1E5] to-[#DBB977] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+          </a>
+          <a
+            href="#about"
+            class="group border-2 border-[#DBB977] text-[#DBB977] px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:bg-[#DBB977] hover:text-gray-900 transition-all duration-500 no-underline"
+          >
+            Discover Our Story
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
+            <div
+              class="inline-block bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] text-gray-900 px-4 py-2 rounded-full text-sm font-semibold tracking-wide"
+            >
+              OUR STORY
+            </div>
+            <h2
+              class="text-4xl md:text-6xl font-serif font-bold leading-tight text-gray-900"
+            >
+              Born in the
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB977] to-[#C5E1E5]"
+                >Heart</span
+              >
+              of the Himalayas
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              We are not just guides; we are storytellers, adventurers, and
+              guardians of the ancient wisdom that flows through these sacred
+              mountains. Every trek is a journey of transformation.
+            </p>
+            <div class="flex items-center">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-[#DBB977]">500+</div>
+                <div class="text-sm text-gray-500 space-x-6">
+                  Happy Trekkers
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-[#C5E1E5]">50+</div>
+                <div class="text-sm text-gray-500 space-x-6">Unique Routes</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-[#DCE6E0]">10+</div>
+                <div class="text-sm text-gray-500 space-x-6">
+                  Years Experience
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+            <div class="relative overflow-hidden">
+              <img
+                src="./public/assets/TNI4.jpg"
+                alt="Mountain Landscape"
+                class="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="absolute -bottom-4 sm:-bottom-6 right-0 sm:right-0 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] p-4 sm:p-4 lg:p-6 rounded-2xl max-w-xs sm:max-w-none z-20"
+            >
+              <div
+                class="text-gray-900 font-bold text-base sm:text-lg lg:text-2xl px-4 py-2"
+              >
+                "The mountains are calling"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="text-center mb-16"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div
+            class="inline-block bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] text-gray-900 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-6"
+          >
+            WHAT WE OFFER
+          </div>
+          <h2
+            class="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900"
+          >
+            Choose Your
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB977] to-[#C5E1E5]"
+              >Adventure</span
+            >
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From gentle walks to challenging ascents, discover experiences that
+            match your spirit and skill level.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Trekking -->
+          <div
+            class="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-10 h-10 text-gray-900"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Trekking</h3>
+            <p class="text-gray-600">
+              Explore the most beautiful trails in the Himalayas with our expert
+              guides.
+            </p>
+          </div>
+
+          <!-- Bike Tours -->
+          <div
+            class="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-[#C5E1E5] to-[#DBB977] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-10 h-10 text-gray-900"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Bike Tours</h3>
+            <p class="text-gray-600">
+              Experience the thrill of mountain biking through challenging
+              terrains.
+            </p>
+          </div>
+
+          <!-- Car Tours -->
+          <div
+            class="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-[#DBB977] to-[#DCE6E0] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-10 h-10 text-gray-900"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Car Tours</h3>
+            <p class="text-gray-600">
+              Comfortable journeys to explore the vast landscapes of Ladakh.
+            </p>
+          </div>
+
+          <!-- Local Stays -->
+          <div
+            class="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-[#DCE6E0] to-[#C5E1E5] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-10 h-10 text-gray-900"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Local Stays</h3>
+            <p class="text-gray-600">
+              Authentic homestays and local accommodations for a true
+              experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Treks Section -->
+    <section id="treks" class="py-24 px-4 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="text-center mb-16"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div
+            class="inline-block bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] text-gray-900 px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-6"
+          >
+            FEATURED TREKS
+          </div>
+          <h2
+            class="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900"
+          >
+            Choose Your
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB977] to-[#C5E1E5]"
+              >Adventure</span
+            >
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From gentle walks to challenging ascents, discover treks that match
+            your spirit and skill level.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Trek Card 1 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="relative h-64 overflow-hidden rounded-t-2xl">
+              <img
+                src="./public/assets/TNI10.webp"
+                alt="Stok Kangri Trek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-[#DBB977] text-gray-900 px-3 py-1 rounded-full text-sm font-bold"
+              >
+                DIFFICULT
+              </div>
+            </div>
+            <div class="px-4 py-2">
+              <h3 class="text-2xl font-serif font-bold mb-2 text-gray-900">
+                Stok Kangri Trek
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Conquer the highest trekking peak in Ladakh at 6,153m
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="text-[#DBB977] font-bold">8 Days</div>
+                <a
+                  href="#"
+                  class="bg-[#DBB977] text-gray-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-[#C5E1E5] transition-colors no-underline"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trek Card 2 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="relative h-64 overflow-hidden rounded-t-2xl">
+              <img
+                src="./public/assets/TNI7.jpg"
+                alt="Markha Valley Trek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-[#C5E1E5] text-gray-900 px-3 py-1 rounded-full text-sm font-bold"
+              >
+                MODERATE
+              </div>
+            </div>
+            <div class="px-4 py-2">
+              <h3 class="text-2xl font-serif font-bold mb-2 text-gray-900">
+                Markha Valley Trek
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Experience the most popular trek in Ladakh
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="text-[#C5E1E5] font-bold">12 Days</div>
+                <a
+                  href="#"
+                  class="bg-[#C5E1E5] text-gray-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-[#DBB977] transition-colors no-underline"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trek Card 3 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="relative h-64 overflow-hidden rounded-t-2xl">
+              <img
+                src="./public/assets/TNI6.jpg"
+                alt="Nubra Valley Trek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-[#DCE6E0] text-gray-900 px-3 py-1 rounded-full text-sm font-bold"
+              >
+                EASY
+              </div>
+            </div>
+            <div class="px-4 py-2">
+              <h3 class="text-2xl font-serif font-bold mb-2 text-gray-900">
+                Nubra Valley Trek
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Discover the hidden beauty of the cold desert
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="text-[#DCE6E0] font-bold">6 Days</div>
+                <a
+                  href="#"
+                  class="bg-[#DCE6E0] text-gray-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-[#DBB977] transition-colors no-underline"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="800">
+          <a
+            href="#treks"
+            class="inline-flex items-center space-x-2 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] text-gray-900 px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:shadow-2xl hover:scale-105 transition-all duration-500 no-underline"
+          >
+            <span>View All Treks</span>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 px-4 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="text-center mb-16"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h2
+            class="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900"
+          >
+            What Our
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#DBB977] to-[#C5E1E5]"
+              >Travelers</span
+            >
+            Say
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Real stories from real adventurers who experienced the magic of
+            Ladakh with us.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-white px-4 py-2 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 px-4 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] rounded-full flex items-center justify-center text-gray-900 font-bold text-lg"
+              >
+                <img
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  src="./public/assets/TNI1.webp"
+                  alt=""
+                />
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                <p class="text-gray-600 text-sm">Adventure Enthusiast</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "The Stok Kangri trek was absolutely life-changing. The guides
+              were incredible and the views were beyond anything I could have
+              imagined."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-white px-4 py-2 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 px-4 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] rounded-full flex items-center justify-center text-gray-900 font-bold text-lg"
+              >
+                <img
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  src="./public/assets/TNI1.webp"
+                  alt=""
+                />
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                <p class="text-gray-600 text-sm">Photography Lover</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "The Markha Valley trek offered the perfect blend of adventure and
+              cultural immersion. The local homestays were a highlight."
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="bg-white px-4 py-2 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 px-4 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5] rounded-full flex items-center justify-center text-gray-900 font-bold text-lg"
+              >
+                <img
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  src="./public/assets/TNI1.webp"
+                  alt=""
+                />
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-900">Anna Rodriguez</h4>
+                <p class="text-gray-600 text-sm">Solo Traveler</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "As a solo traveler, I felt completely safe and supported. The
+              team went above and beyond to make my experience unforgettable."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-4 bg-gradient-to-r from-[#DBB977] to-[#C5E1E5]">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2
+          class="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          Ready to Begin Your
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700"
+            >Transformation?</span
+          >
+        </h2>
+        <p
+          class="text-xl text-gray-900 mb-8 opacity-90"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          Join us on a journey that will change not just your perspective, but
+          your soul.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <a
+            href="#contact"
+            class="bg-gray-900 text-[#DBB977] px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:bg-gray-800 transition-all duration-300 no-underline"
+          >
+            Start Planning
+          </a>
+          <a
+            href="#gallery"
+            class="border-2 border-gray-900 text-gray-900 px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:bg-gray-900 hover:text-[#DBB977] transition-all duration-300 no-underline"
+          >
+            View Gallery
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="font-serif text-2xl font-bold text-[#DBB977] mb-4">
+              TNI
+            </div>
+            <p class="text-gray-400">Trekking the Soul of the Himalayas</p>
+          </div>
+          <div>
+            <h3 class="font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#treks"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Treks</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-4">Experiences</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Trekking</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Car Tours</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Bike Adventures</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-[#DBB977] transition-colors no-underline"
+                  >Custom Trips</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-4">Contact</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Leh, Ladakh, India</li>
+              <li>+91 98765 43210</li>
+              <li>info@travelnetworkindia.com</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 Travel Network India. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Navbar background on scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("bg-black/90", "backdrop-blur-md");
+        } else {
+          navbar.classList.remove("bg-black/90", "backdrop-blur-md");
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+    <script>
+      // Professional Mobile Navigation Implementation
+      class MobileNavigation {
+        constructor() {
+          this.menuBtn = document.querySelector(".mobile-menu-btn");
+          this.overlay = document.querySelector(".mobile-menu-overlay");
+          this.navLinks = document.querySelectorAll(".mobile-nav-links a");
+          this.isOpen = false;
+
+          this.init();
+        }
+
+        init() {
+          // Menu button click
+          this.menuBtn.addEventListener("click", () => this.toggleMenu());
+
+          // Close menu when clicking on nav links
+          this.navLinks.forEach((link) => {
+            link.addEventListener("click", () => this.closeMenu());
+          });
+
+          // Close menu when clicking outside
+          this.overlay.addEventListener("click", (e) => {
+            if (e.target === this.overlay) {
+              this.closeMenu();
+            }
+          });
+
+          // Keyboard navigation
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && this.isOpen) {
+              this.closeMenu();
+            }
+          });
+
+          // Prevent body scroll when menu is open
+          this.overlay.addEventListener("transitionend", () => {
+            if (this.isOpen) {
+              document.body.classList.add("menu-open");
+            } else {
+              document.body.classList.remove("menu-open");
+            }
+          });
+        }
+
+        toggleMenu() {
+          if (this.isOpen) {
+            this.closeMenu();
+          } else {
+            this.openMenu();
+          }
+        }
+
+        openMenu() {
+          this.isOpen = true;
+          this.menuBtn.classList.add("active");
+          this.menuBtn.setAttribute("aria-expanded", "true");
+          this.overlay.classList.add("active");
+          this.overlay.setAttribute("aria-hidden", "false");
+
+          // Focus management
+          setTimeout(() => {
+            this.navLinks[0].focus();
+          }, 300);
+        }
+
+        closeMenu() {
+          this.isOpen = false;
+          this.menuBtn.classList.remove("active");
+          this.menuBtn.setAttribute("aria-expanded", "false");
+          this.overlay.classList.remove("active");
+          this.overlay.setAttribute("aria-hidden", "true");
+
+          // Return focus to menu button
+          this.menuBtn.focus();
+        }
+      }
+
+      // Initialize mobile navigation
+      const mobileNav = new MobileNavigation();
+    </script>
+  </body>
+</html>

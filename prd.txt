@@ -1,0 +1,195 @@
+🗂 Product Requirement Document (PRD)
+🔖 Project Title:
+Travel Network India – Trekking the Soul of the Himalayas
+
+🧭 Overview
+Location: Leh, Ladakh
+Scope: A high-end trekking and experiential travel website
+Focus: Unexplored Himalayan landscapes | Local Wisdom | Authentic Connection
+Design Goal: Immersive, artistic, intuitive, and highly interactive digital experience
+
+🎯 Project Goals
+Present Ladakh not as a destination, but as a transformational experience
+
+Highlight local authenticity, responsible tourism, and deep cultural connection
+
+Offer seamless trip discovery and lead conversion through interactive UI/UX
+
+Create a visually immersive experience using smooth animations, scroll magic, and smart transitions
+
+Build a scalable and fast-loading website using modern frontend technologies
+
+✨ Core Values to Reflect in Design
+Soulful storytelling
+
+Raw Himalayan beauty
+
+Personal connection with the land
+
+Local and responsible travel ethos
+
+Adventurous spirit
+
+🧩 Key Features & UX Design Plan
+1. Hero Section (Homepage)
+Full-screen cinematic background video or panoramic image slider
+
+Tagline animated in on scroll (Let Ladakh Change You…)
+
+Subtle mouse movement parallax and scroll-based text reveals
+
+CTA: “Start Your Journey” | “Explore Treks”
+
+2. Interactive About Us Page
+Scrollytelling layout — Each scroll reveals a visual story:
+
+Birth in Ladakh ➝ Soul of the mountains ➝ Real faces and voices
+
+Animated quote block for the "Message from Us"
+
+Creative SVG-based path animation showing the journey of the company
+
+Horizontal image scroll or animated gallery timeline
+
+3. Treks & Adventures Page
+Filterable UI (difficulty, region, duration) with smooth transitions
+
+Cards with hover effects showing elevation / mood / teaser
+
+Individual Trek Page:
+
+Sticky sections: Overview, Route map, Photos, Altitude chart
+
+GSAP or ScrollTrigger animations for each section
+
+CTA: “Enquire Now” with floating button
+
+4. What We Offer Page
+Visually driven layout with animated icons & transitions
+
+On-scroll illustrations or line art animations
+
+Sections:
+
+🥾 Treks
+
+🚗 Car Tours
+
+🏍 Bike Adventures
+
+🧭 Custom Trips
+
+🏡 Local Stay & Food
+
+5. Gallery / Visual Stories
+Masonry grid with filter by trip or category
+
+Full-screen lightbox with swipeable UX
+
+Vertical scroll gallery with story captions on hover (or modal)
+
+6. Contact / Inquiry Page
+Animated form input fields
+
+Dropdown to choose trek/adventure type
+
+Success confirmation with personalized message
+
+Optional WhatsApp integration for quick replies
+
+7. Why Travel With Us
+Section with animated icons or custom illustrations
+
+Floating text tiles or smooth fade-ins on scroll
+
+Testimonials as vertical slider or “card flip” animation
+
+🧑‍🎨 UI/UX Design Guidelines
+Aspect	Description
+Visual Style	Modern, elegant, and warm. Earthy tones (clay, sand, deep blue, snow white)
+Fonts	Serif headline (e.g., Playfair / Lora) + Sans-serif body (e.g., Inter / DM Sans)
+Color Palette	#202020, #FFFFFF, #7E7E7E, #DBB977, #C5E1E5, #DCE6E0
+Animations	GSAP, ScrollTrigger, Parallax, Microinteractions
+Layout	Whitespace-heavy, large sections, image-driven storytelling
+Navigation	Transparent sticky nav that transitions on scroll, mobile-first
+Accessibility	Contrast tested, large tap targets, clean focus states
+
+🧱 Tech Stack
+Frontend:
+
+Tailwind CSS (Installed via PostCSS or Vite)
+
+Vanilla JS / Alpine.js / GSAP
+
+HTML5 with animation libraries
+
+Backend:
+
+Static for now (integrate with Formspree or Getform for inquiries)
+
+Optional future PHP backend for CMS or admin panel
+
+Hosting:
+
+Netlify / Vercel / GitHub Pages
+
+Optional Integrations:
+
+WhatsApp Chat Plugin
+
+Google Maps for route previews
+
+Analytics (Plausible / GA4)
+
+📊 Success Metrics
+💡 90+ Lighthouse score (Performance, Accessibility, Best Practices)
+
+📥 20+ monthly inquiries from forms
+
+📈 3+ mins average time on site
+
+💬 High engagement on trek pages with <35% bounce rate
+
+🛠 Taskmaster (Phases)
+Phase 1: Discovery & Planning
+Content finalization
+
+Asset collection (images, trek data, team bios)
+
+Define sitemap
+
+Phase 2: Design System
+Tailwind config (colors, typography)
+
+UI Kit: buttons, cards, inputs
+
+Navigation & footer
+
+Phase 3: Page Development
+Homepage (hero + scroll sections)
+
+About Page (interactive timeline)
+
+Trek Listing + Trek Detail Pages
+
+What We Offer
+
+Gallery
+
+Contact Page
+
+Phase 4: Animation & Polish
+Scroll & reveal effects (GSAP/ScrollTrigger)
+
+Hover/mouse interactions
+
+Responsive optimization
+
+Form testing
+
+Phase 5: Deployment
+Connect domain (e.g., travelnetworkindia.in)
+
+Deploy on Netlify/Vercel
+
+Monitor performance

@@ -1,0 +1,131 @@
+✅ Travel Network India — Development Task Master
+1. Project Setup
+1.1 Tailwind CSS Installation
+ Initialize project (npm init -y)
+
+ Install Tailwind CSS via npm
+npm install -D tailwindcss postcss autoprefixer
+
+ Create Tailwind config files
+npx tailwindcss init -p
+
+ Setup input/output in tailwind.config.js and postcss.config.js
+
+ Create src/input.css with Tailwind directives:
+
+css
+Copy
+Edit
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ Configure build script in package.json using tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+
+2. Folder Structure
+bash
+Copy
+Edit
+travel-network-india/
+├── public/
+│   └── assets/         # images, icons, videos
+├── src/
+│   ├── components/     # reusable UI components
+│   ├── pages/          # individual pages
+│   ├── input.css       # Tailwind input
+│   ├── scripts/        # vanilla JS modules
+├── dist/
+│   ├── output.css      # compiled Tailwind CSS
+├── tailwind.config.js
+├── postcss.config.js
+├── index.html
+├── package.json
+3. UI Components (Reusable)
+3.1 Navigation Bar
+ Sticky transparent header with scroll transition
+
+ Responsive hamburger menu
+
+ Logo + Nav links + CTA button
+
+3.2 Footer
+ Simple footer with links, copyright
+
+ Social media icons
+
+3.3 Common Components
+ Button (primary, secondary)
+
+ Card (trek, blog, offer)
+
+ Image modal / Lightbox
+
+ Section wrapper with consistent spacing
+
+4. Page Development
+4.1 Homepage (index.html)
+ Hero section with cinematic scroll effect
+
+ About teaser
+
+ What we offer (cards with icon)
+
+ Why travel with us
+
+ Testimonials
+
+ Call to action
+
+4.2 About Us (about.html)
+ Scrollytelling timeline
+
+ Message from us
+
+ Local team section
+
+4.3 Treks & Adventures (treks.html)
+ Filter by difficulty, region
+
+ Dynamic trek cards
+
+ Trek detail modal or separate pages
+
+4.4 What We Offer (experiences.html)
+ Tour categories: car, bike, stay, custom trips
+
+ Interactive iconography or scroll animations
+
+4.5 Gallery (gallery.html)
+ Masonry grid layout
+
+ Full-screen lightbox
+
+ Optional filter by trek type
+
+4.6 Contact Page (contact.html)
+ Inquiry form
+
+ Map embed (optional)
+
+ WhatsApp CTA
+
+5. Enhancements & Interactions
+ Smooth scroll effects (e.g., Locomotive Scroll / Vanilla JS)
+
+ Lazy loading for images
+
+ Animation on scroll (AOS.js or GSAP)
+
+ Accessibility checks (alt tags, contrast)
+
+ SEO optimization (meta tags, page titles)
+
+6. Testing & Deployment
+ Test on Chrome, Safari, Firefox, Mobile
+
+ Check responsive breakpoints
+
+ Validate contact form functionality
+
+ Deploy on Netlify/Vercel
+
+ Connect custom domain (e.g., travelnetworkindia.in)
