@@ -199,17 +199,9 @@
         }
 
         #navbar {
-          padding: 0;
-        }
-
-        #navbar .max-w-7xl {
-          max-width: 100%;
-          padding: 0 15px;
-          margin: 0;
-        }
-
-        #navbar .flex {
-          padding: 0 15px;
+          width: 100% !important;
+          left: 0 !important;
+          right: 0 !important;
         }
 
         .mobile-menu-btn {
@@ -225,11 +217,11 @@
 
       @media (max-width: 480px) {
         .mobile-nav-links a {
-          font-size: 24px;
+          font-size: 20px;
         }
 
         .mobile-cta-button {
-          font-size: 18px;
+          font-size: 16px;
           padding: 15px 30px;
         }
       }
@@ -314,6 +306,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -326,48 +319,49 @@
   <body class="bg-gray-50 text-gray-900 font-sans">
     <!-- Navigation -->
     <nav
-      class="fixed w-full z-50 bg-black/80 backdrop-blur-md shadow transition-all duration-500"
+      class="fixed top-0 left-0 right-0 w-full z-50 bg-black backdrop-blur-md shadow transition-all duration-500"
       id="navbar"
-      style="z-index: 1001; overflow: hidden"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="flex justify-between items-center py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex justify-between items-center py-4 mx-4 sm:mx-6 lg:mx-8"
+        >
           <div class="flex items-center">
-            <div class="text-2xl font-gilroy-extrabold text-white">
+            <div class="text-2xl font-gilroy-bold text-white">
               TRAVEL NETWORK
             </div>
           </div>
 
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden md:flex items-center space-x-6">
             <a
               href="#home"
-              class="nav-link text-base font-medium text-white hover:text-[#1448c5] focus:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="text-sm font-medium text-white hover:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >Home</a
             >
             <a
               href="#about"
-              class="nav-link text-base font-medium text-white hover:text-[#1448c5] focus:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="text-sm font-medium text-white hover:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >About</a
             >
             <a
               href="#services"
-              class="nav-link text-base font-medium text-white hover:text-[#1448c5] focus:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="text-sm font-medium text-white hover:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >Services</a
             >
             <a
               href="#treks"
-              class="nav-link text-base font-medium text-white hover:text-[#1448c5] focus:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="text-sm font-medium text-white hover:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >Treks</a
             >
             <a
               href="#contact"
-              class="nav-link text-base font-medium text-white hover:text-[#1448c5] focus:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="text-sm font-medium text-white hover:text-[#1448c5] transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >Contact</a
             >
             <a
               href="#contact"
-              class="ml-4 bg-[#1448c5] text-white px-6 pt-2 pb-3 rounded-full font-semibold hover:bg-[#0582ca] hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
+              class="ml-4 bg-[#1448c5] text-white px-4 py-2 rounded-full font-semibold hover:bg-[#0582ca] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1448c5] no-underline"
               >Start Journey</a
             >
           </div>
@@ -470,7 +464,7 @@
           </a>
           <a
             href="#about"
-            class="group border-2 border-[#1448c5] text-[#1448c5] px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:bg-[#1448c5] hover:text-white transition-all duration-500 no-underline"
+            class="group border-2 border-[#1448c5] text-white px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:bg-[#1448c5] hover:text-white transition-all duration-500 no-underline"
           >
             Discover Our Story
           </a>
@@ -504,27 +498,23 @@
               mountains. Every trek is a journey of transformation.
             </p>
             <div class="flex items-center">
-              <div class="text-center">
+              <div class="text-center space-x-6">
                 <div class="text-3xl font-bold text-[#1448c5]">500+</div>
-                <div class="text-sm text-gray-500 space-x-6">
-                  Happy Trekkers
-                </div>
+                <div class="text-sm text-gray-500">Happy Trekkers</div>
               </div>
-              <div class="text-center">
+              <div class="text-center space-x-6">
                 <div class="text-3xl font-bold text-[#0582ca]">50+</div>
-                <div class="text-sm text-gray-500 space-x-6">Unique Routes</div>
+                <div class="text-sm text-gray-500">Unique Routes</div>
               </div>
-              <div class="text-center">
+              <div class="text-center space-x-6">
                 <div class="text-3xl font-bold text-[#006494]">10+</div>
-                <div class="text-sm text-gray-500 space-x-6">
-                  Years Experience
-                </div>
+                <div class="text-sm text-gray-500">Years Experience</div>
               </div>
             </div>
           </div>
           <div class="relative" data-aos="fade-up" data-aos-duration="1000">
             <div
-              class="relative overflow-hidden rounded-2xl shadow-2xl"
+              class="relative overflow-hidden rounded-2xl shadow-2xl mb-4"
               style="aspect-ratio: 16/9"
             >
               <img
@@ -536,12 +526,12 @@
               />
             </div>
             <div
-              class="absolute -bottom-4 sm:-bottom-6 right-0 sm:right-0 bg-gradient-to-r from-[#1448c5] to-[#0582ca] p-4 sm:p-4 lg:p-6 rounded-2xl max-w-xs sm:max-w-none z-20"
+              class="absolute right-0 sm:right-0 bg-gradient-to-r from-[#1448c5] to-[#0582ca] p-4 sm:p-4 lg:p-6 rounded-2xl max-w-xs sm:max-w-none z-20"
             >
               <div
                 class="text-white font-bold text-base sm:text-lg lg:text-2xl px-4 py-2"
               >
-                "The mountains are calling"
+                "Know more about us"
               </div>
             </div>
           </div>
@@ -1002,7 +992,7 @@
     <section class="py-24 px-4 bg-gradient-to-r from-[#1448c5] to-[#0582ca]">
       <div class="max-w-4xl mx-auto text-center">
         <h2
-          class="text-4xl md:text-6xl font-gilroy-extrabold text-gray-900 mb-6"
+          class="text-4xl md:text-6xl font-gilroy-extrabold text-gray-200 mb-6"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -1044,7 +1034,7 @@
     <!-- Footer -->
     <footer id="contact" class="bg-gray-900 text-white py-16 px-4">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <div class="font-gilroy-extrabold text-2xl text-[#1448c5] mb-4">
               TNI
@@ -1119,10 +1109,10 @@
           </div>
           <div>
             <h3 class="font-bold mb-4">Contact</h3>
-            <ul class="space-y-2 text-gray-400">
+            <ul class="space-y-2 text-gray-400 text-wrap">
               <li>Leh, Ladakh, India</li>
               <li>+91 98765 43210</li>
-              <li>info@travelnetworkindia.com</li>
+              <li>info@travelnetworkindia .com</li>
             </ul>
           </div>
         </div>
