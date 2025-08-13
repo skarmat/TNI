@@ -244,6 +244,22 @@
         font-weight: 800;
       }
 
+      /* Footer list alignment */
+      .footer-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .footer-list li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .footer-list a {
+        margin: 0;
+        padding: 0;
+      }
+
       /* Custom color palette */
       :root {
         --color-primary: #051923;
@@ -449,9 +465,9 @@
       >
         <div class="mb-4">
           <img
-            src="./public/assets/bg_trans.png"
+            src="./public/assets/TL_logo_hr.jpg"
             alt="logo"
-            class="w-40 h-40"
+            class="w-40 h-20 rounded-lg"
           />
         </div>
 
@@ -1004,7 +1020,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 px-4 bg-gradient-to-r from-[#1448c5] to-[#0582ca]">
+    <!-- <section class="py-24 px-4 bg-gradient-to-r from-[#1448c5] to-[#0582ca]">
       <div class="max-w-4xl mx-auto text-center">
         <h2
           class="text-4xl md:text-6xl font-gilroy-extrabold text-gray-200 mb-6"
@@ -1044,94 +1060,94 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer id="contact" class="bg-gray-900 text-white py-16 px-4">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
+          <div class="flex flex-col">
             <div class="font-gilroy-extrabold text-2xl text-[#1448c5] mb-4">
               <img
-                src="./public/assets/bg_trans.png"
+                src="./public/assets/TL_logo_hr.jpg"
                 alt="logo"
                 class="w-22 h-20"
               />
             </div>
             <p class="text-gray-400">Trekking the Soul of the Himalayas</p>
           </div>
-          <div>
-            <h3 class="font-bold mb-4">Quick Links</h3>
-            <ul class="space-y-2 text-gray-400">
+          <div class="flex flex-col">
+            <h3 class="font-bold mb-2 text-lg text-left">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400 list-none footer-list">
               <li>
                 <a
                   href="#about"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >About Us</a
                 >
               </li>
               <li>
                 <a
                   href="#treks"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Treks</a
                 >
               </li>
               <li>
                 <a
                   href="#gallery"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Gallery</a
                 >
               </li>
               <li>
                 <a
                   href="#contact"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Contact</a
                 >
               </li>
             </ul>
           </div>
-          <div>
-            <h3 class="font-bold mb-4">Experiences</h3>
-            <ul class="space-y-2 text-gray-400">
+          <div class="flex flex-col">
+            <h3 class="font-bold mb-2 text-lg text-left">Experiences</h3>
+            <ul class="space-y-2 text-gray-400 list-none footer-list">
               <li>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Trekking</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Car Tours</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Bike Adventures</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline"
+                  class="text-gray-400 hover:text-[#1448c5] transition-colors no-underline block py-0.5 text-left"
                   >Custom Trips</a
                 >
               </li>
             </ul>
           </div>
-          <div>
-            <h3 class="font-bold mb-4">Contact</h3>
-            <ul class="space-y-2 text-gray-400 text-wrap">
-              <li>Leh, Ladakh, India</li>
-              <li>+91 98765 43210</li>
-              <li>info@travel networkindia.com</li>
+          <div class="flex flex-col">
+            <h3 class="font-bold mb-2 text-lg text-left">Contact</h3>
+            <ul class="space-y-2 text-gray-400 list-none footer-list">
+              <li class="py-0.5 text-left">Leh, Ladakh, India</li>
+              <li class="py-0.5 text-left">+91 98765 43210</li>
+              <li class="py-0.5 text-left">info@travelnetwork.com</li>
             </ul>
           </div>
         </div>
