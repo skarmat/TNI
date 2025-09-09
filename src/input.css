@@ -640,3 +640,20 @@
     padding-right: 2rem;
   }
 }
+
+/* Additional modern font utilities */
+.font-light {
+  font-weight: 300;
+}
+.font-extralight {
+  font-weight: 200;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+.font-body {
+  font-family: "Manrope", "Inter", sans-serif;
+}
